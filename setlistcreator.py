@@ -6,6 +6,8 @@ import yaml
 import argparse
 import logging
 
+# python setlistcreator.py machiisetlistsongnomark2.csv --config_file .\config.yaml
+
 # Function to convert song time (in "MM:SS" format) to total seconds
 def time_to_seconds(time_str):
     minutes, seconds = map(int, time_str.split(':'))
@@ -58,11 +60,12 @@ def create_setlist(csv_file, config_file=None):
         gig_venue = "Venue not provided"
         band_name = "Band not provided"
 
-    # Maximum duration for each set in seconds (45 minutes = 2700 seconds)
-    max_set_duration = 45 * 60
-    max_songs_per_page = 10  # Estimate how many songs can fit on a page at default font size
+    # Maximum duration for each set in seconds (50 minutes = 3000 seconds)
+    #max_set_duration = 47 * 60
+    max_set_duration = 48 * 60
+    max_songs_per_page = 12  # Estimate how many songs can fit on a page at default font size
     min_font_size = 10  # Minimum font size allowed for shrinking
-    default_font_size = 18
+    default_font_size = 20
 
     total_songs = len(df)
     current_set_time = 0
